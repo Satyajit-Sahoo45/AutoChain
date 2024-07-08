@@ -12,6 +12,9 @@
     "@clerk/nextjs": "^5.2.2",
     "@radix-ui/react-slot": "^1.1.0",
     "@shadcn/ui": "^0.0.4",
+    "@tsparticles/engine": "^3.5.0",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.5.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.2.13",
@@ -20,7 +23,7 @@
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
-    "tailwind-merge": "^2.3.0",
+    "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
