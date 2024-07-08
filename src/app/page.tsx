@@ -35,7 +35,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-[500px] bg-neutral-950 w-full pb-8">
+      <section className="mt-[300px] md:mt-[600px] bg-neutral-950 w-full pb-8">
         <LampComponent />
         <div className="flex flex-wrap items-center justify-center flex-col md:flex-row gap-8 -mt-72">
           <CardContainer className="inter-var ">
