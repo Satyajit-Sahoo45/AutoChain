@@ -17,22 +17,22 @@ type Props = {};
 
 const InfoBar = (props: Props) => {
   return (
-    <div className="flex flex-row justify-end gap-6 items-center px-4 py-4 w-full dark:bg-black ">
+    <div className="flex flex-row justify-end gap-6 items-center px-4 py-3 w-full dark:bg-black ">
       <span className="flex items-center gap-2 font-bold">
         <p className="text-sm font-light text-gray-300">Credits</p>
-        {true ? <span>Unlimited</span> : <span>1/ 10</span>}
+        {false ? <span>Unlimited</span> : <span>1/ 10</span>}
       </span>
       <span className="flex items-center rounded-full bg-muted px-4">
         <Search />
         <Input
           placeholder="Quick Search"
-          className="border-none bg-transparent"
+          className="border-none bg-transparent outline-none"
         />
       </span>
       <TooltipProvider>
         <Tooltip delayDuration={0}>
           <TooltipTrigger>
-            <Headphones />
+            <Headphones size={16} />
           </TooltipTrigger>
           <TooltipContent>
             <p>Contact Support</p>
@@ -42,7 +42,7 @@ const InfoBar = (props: Props) => {
       <TooltipProvider>
         <Tooltip delayDuration={0}>
           <TooltipTrigger>
-            <Book />
+            <Book size={16} />
           </TooltipTrigger>
           <TooltipContent>
             <p>Guide</p>
