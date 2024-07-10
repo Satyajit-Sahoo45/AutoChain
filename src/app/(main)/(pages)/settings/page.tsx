@@ -23,18 +23,17 @@ const Settings = (props: Props) => {
 
   const uploadProfileImage = async (image: string) => {
     "use server";
-    console.log(image, "878787787887");
-    // const id = authUser.id;
-    // const response = await db.user.update({
-    //   where: {
-    //     clerkId: id,
-    //   },
-    //   data: {
-    //     profileImage: image,
-    //   },
-    // });
+    const id = authUser.id;
+    const response = await db.user.update({
+      where: {
+        clerkId: id,
+      },
+      data: {
+        profileImage: image,
+      },
+    });
 
-    // return response;
+    return response;
   };
 
   const updateUserInfo = async (name: string) => {
