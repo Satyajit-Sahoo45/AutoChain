@@ -60,11 +60,11 @@ const Settings = (props: Props) => {
             Add or update your information
           </p>
         </div>
-        <ProfilePicture
+        {/* <ProfilePicture
           onDelete={removeProfileImage}
           userImage={""}
           onUpload={uploadProfileImage}
-        />
+        /> */}
         <ProfileForm />
       </div>
     </div>
