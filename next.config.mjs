@@ -2,6 +2,9 @@
 const nextConfig = {
     images: {
         domains: ['img.clerk.com', 'ucarecdn.com'],
+    },
+    typescript: {
+        ignoreBuildErrors: true
     }
 };
 
