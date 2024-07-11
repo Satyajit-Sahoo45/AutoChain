@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { z } from "zod";
+import React, { use, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { EditUserProfileSchema } from "@/lib/types";
 import {
   Form,
   FormControl,
@@ -15,39 +16,41 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Loader2 } from "lucide-react";
-import { EditUserProfileSchema } from "@/lib/types";
 
 type Props = {
   user: any;
   onUpdate?: any;
 };
 
-const ProfileForm = () => {
+const ProfileForm = ({ user, onUpdate }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const form = useForm<z.infer<typeof EditUserProfileSchema>>({
     mode: "onChange",
     resolver: zodResolver(EditUserProfileSchema),
     defaultValues: {
-      name: "",
-      email: "",
+      name: user.name,
+      email: user.email,
     },
   });
 
-  //   const handleSubmit = async (
-  //     values: z.infer<typeof EditUserProfileSchema>
-  //   ) => {
-  //     setIsLoading(true);
-  //     await onUpdate(values.name);
-  //     setIsLoading(false);
-  //   };
+  const handleSubmit = async (
+    values: z.infer<typeof EditUserProfileSchema>
+  ) => {
+    setIsLoading(true);
+    await onUpdate(values.name);
+    setIsLoading(false);
+  };
 
-  //   useEffect(() => {
-  //     form.reset({ name: user.name, email: user.email });
-  //   }, [user]);
+  useEffect(() => {
+    form.reset({ name: user.name, email: user.email });
+  }, [user]);
 
   return (
     <Form {...form}>
-      <form className="flex flex-col gap-6" onSubmit={() => {}}>
+      <form
+        className="flex flex-col gap-6"
+        onSubmit={form.handleSubmit(handleSubmit)}
+      >
         <FormField
           disabled={isLoading}
           control={form.control}

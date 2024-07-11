@@ -17,15 +17,15 @@ const UploadCareButton = ({ onUpload }: Props) => {
       ...items.allEntries.filter((file: any) => file.status === "success"),
     ]);
 
-    // const file = await onUpload(
-    //   items &&
-    //     [
-    //       ...items.allEntries.filter((file: any) => file.status === "success"),
-    //     ][0]?.cdnUrl
-    // );
-    // if (file) {
-    //   router.refresh();
-    // }
+    const file = await onUpload(
+      items &&
+        [
+          ...items.allEntries.filter((file: any) => file.status === "success"),
+        ][0]?.cdnUrl
+    );
+    if (file) {
+      router.refresh();
+    }
   };
 
   return (
