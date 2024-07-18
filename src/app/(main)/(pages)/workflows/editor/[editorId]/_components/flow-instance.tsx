@@ -4,7 +4,10 @@ import { useNodeConnections } from "@/providers/connections-provider";
 import { usePathname } from "next/navigation";
 import React, { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
-import { onCreateNodesEdges } from "../_actions/workflow-connections";
+import {
+  onCreateNodesEdges,
+  onFlowPublish,
+} from "../_actions/workflow-connections";
 
 type Props = {
   children: React.ReactNode;
@@ -28,8 +31,8 @@ const FlowInstance = ({ children, edges, nodes }: Props) => {
   }, [nodeConnection]);
 
   const onPublishWorkflow = useCallback(async () => {
-    // const response = await onFlowPublish(pathname.split("/").pop()!, true);
-    // if (response) toast.message(response);
+    const response = await onFlowPublish(pathname.split("/").pop()!, true);
+    if (response) toast.message(response);
   }, []);
 
   const onAutomateFlow = async () => {
