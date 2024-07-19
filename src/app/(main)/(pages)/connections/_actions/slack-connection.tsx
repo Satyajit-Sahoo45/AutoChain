@@ -15,6 +15,17 @@ export const onSlackConnect = async (
   team_name: string,
   user_id: string
 ): Promise<void> => {
+  console.log(
+    app_id,
+    authed_user_id,
+    authed_user_token,
+    slack_access_token,
+    bot_user_id,
+    team_id,
+    team_name,
+    user_id,
+    "+++"
+  );
   if (!slack_access_token) return;
 
   const slackConnection = await db.slack.findFirst({
@@ -64,7 +75,7 @@ export async function listBotChannels(
       headers: { Authorization: `Bearer ${slackAccessToken}` },
     });
 
-    console.log(data);
+    console.log(data, "2------");
 
     if (!data.ok) throw new Error(data.error);
 
